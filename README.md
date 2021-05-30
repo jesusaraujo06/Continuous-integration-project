@@ -3,7 +3,7 @@ Este repositorio será utilizado para elaborar el proyecto de Integración Conti
 
 Miembros del grupo:
 - Jesus Araujo Orozco
-- 
--
+- Hernan Ricardo Barrero Suarez
+- Diego Andres Orozco Lopez
 -
 -
