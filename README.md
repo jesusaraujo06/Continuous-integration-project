@@ -6,4 +6,4 @@ Miembros del grupo:
 - Hernan Ricardo Barrero Suarez
 - Diego Andres Orozco Lopez
 - Julián Antonio Vallejo Ramírez
--Javier Salazar Ramirez
+- Javier Salazar Ramirez
