@@ -1,0 +1,40 @@
+<nav class="navbar navbar-light bg-faded">
+  <div class="container">
+    <a class="navbar-brand" href="#">Integración Continua</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div [style.margin-top.px]="10" class="row">
+    <h3>Añadir nueva persona</h3>
+    <form class="form-inline">
+      <div class="form-group" [style.margin-right.rem]="2">
+        <label for="name">Nombre</label><br />
+        <input type="text" class="form-control" id="name" #name />
+      </div>
+      <div class="form-group" [style.margin-right.rem]="2">
+        <label for="age">Años</label><br />
+        <input type="number" class="form-control" id="age" #age />
+      </div>
+      <button
+        type="button"
+        [style.margin-top.rem]="2"
+        (click)="addPerson(name.value, age.value)"
+        class="btn btn-primary"
+      >
+        Añadir persona
+      </button>
+    </form>
+  </div>
+  <div [style.margin-top.px]="10" class="row">
+    <h3>Personas</h3>
+    <div
+      [style.margin-right.px]="10"
+      class="card card-block col-md-3"
+      *ngFor="let person of people"
+    >
+      <h4 class="card-title"><b>Nombre:</b> {{ person.name }}</h4>
+      <p><b>Edad:</b> {{ person.age }}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+version: "3"
+services:
+  angularapp:
+    container_name: tekking
+    restart: always
+    build: Tekking
+    ports:
+      - "4200:80"
+
+    volumes:
+      - /Tekking/:/usr/src/app
+
+  express:
+    container_name: express
+    build: Server
+    ports:
+      - "3000:3000"
+    links:
+      - database
+
+  database:
+    container_name: database
+    image: mongo
+    ports:
+      - "27017:27017"
+    logging:
+      driver: none
