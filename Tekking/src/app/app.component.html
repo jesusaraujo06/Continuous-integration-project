@@ -33,6 +33,7 @@
       class="card card-block col-md-3"
       *ngFor="let person of people"
     >
+      <p (click)="onDelete(person._id)">x</p>
       <h4 class="card-title"><b>Nombre:</b> {{ person.name }}</h4>
       <p><b>Edad:</b> {{ person.age }}</p>
     </div>

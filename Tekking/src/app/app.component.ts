@@ -22,12 +22,13 @@ export class AppComponent implements OnInit {
 
   // Add one person to the API
   addPerson(name, age) {
-    this.http
-      .post(`${this.API}/users`, { name, age })
-      .pipe(map((res) => res))
-      .subscribe(() => {
-        this.getAllPeople();
-      });
+    if (name && age)
+      this.http
+        .post(`${this.API}/users`, { name, age })
+        .pipe(map((res) => res))
+        .subscribe(() => {
+          this.getAllPeople();
+        });
   }
 
   // Get all users from the API
@@ -38,6 +39,15 @@ export class AppComponent implements OnInit {
       .subscribe((people) => {
         console.log(people);
         this.people = people;
+      });
+  }
+
+  onDelete(id) {
+    this.http
+      .post(`${this.API}/users/delete`, { id })
+      .pipe(map((res) => res))
+      .subscribe((people) => {
+        this.getAllPeople();
       });
   }
 }

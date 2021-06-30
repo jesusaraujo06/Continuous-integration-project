@@ -49,6 +49,16 @@ router.get('/users/:id', (req, res) => {
   });
 });
 
+/* Delete one user. */
+router.post('/users/delete', (req, res) => {
+  User.findOneAndDelete({ _id: req.body.id })
+    .exec()
+    .then((user) => res.json())
+    .catch((err) => {
+      if (err) res.status(500).send(err);
+    });
+});
+
 /* Create a user. */
 router.post('/users', (req, res) => {
   let user = new User({

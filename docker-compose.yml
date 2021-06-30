@@ -1,20 +1,20 @@
-version: "3"
+version: '3.7'
 services:
   angularapp:
     container_name: tekking
     restart: always
     build: Tekking
     ports:
-      - "4200:80"
+      - '4200:80'
 
     volumes:
-      - /Tekking/:/usr/src/app
+      - /Tekking/:/usr/src/app/
 
   express:
     container_name: express
     build: Server
     ports:
-      - "3000:3000"
+      - '3000:3000'
     links:
       - database
 
@@ -22,6 +22,18 @@ services:
     container_name: database
     image: mongo
     ports:
-      - "27017:27017"
+      - '27017:27017'
     logging:
       driver: none
+
+  jenkins:
+    build: Jenkins
+    privileged: true
+    user: root
+    ports:
+      - '8080:8080'
+      - '50000:50000'
+    container_name: jenkins
+    volumes:
+      - ~/jenkins:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
